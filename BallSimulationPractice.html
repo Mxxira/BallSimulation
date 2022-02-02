@@ -1,0 +1,59 @@
+<div id="ball" style="
+    z-index: 5;
+    position: absolute;
+    left: 400px;
+    top: 75px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgb(107, 2, 2);
+"></div>
+<script>
+        var velocity = 200;
+        var position = 100;
+        var ball = document.getElementById('ball');
+
+    //move ball
+    position = position + velocity;
+    ball.style.left = position + 'px';
+        //this starts the animation sequence
+        var positionX = 100;
+        var positionY = 100;
+        var velocity = 100;
+        var reverse = true;
+        var ball = document.getElementById("ball");
+
+function moveBall() {
+  // two x-axis coordinates
+        var Xmin = 0;
+        var Xmax = 700;
+
+  // two y-axis coordinates
+        var Ymin = 0;
+        var Ymax = 700;
+
+  if (reverse) {
+    positionX = positionX - velocity;
+    positionY = positionY - velocity;
+    ball.style.left = positionX + "px";
+    ball.style.top = positionY + "px";
+  } else {
+    positionX = positionX + velocity;
+    positionY = positionY + velocity;
+    ball.style.left = positionX + "px";
+    ball.style.top = positionY + "px";
+  }
+
+  if (
+    positionX > Xmax ||
+    positionX === Xmin ||
+    positionY > Ymax ||
+    positionY === Ymin 
+  ) {
+    reverse = !reverse;
+  }
+}
+
+setInterval(moveBall, 500);
+
+</script>
